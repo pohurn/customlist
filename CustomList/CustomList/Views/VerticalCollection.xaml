@@ -23,7 +23,7 @@
                     <!--<Frame HeightRequest="{Binding heightSize}" BackgroundColor="#FFFFFF" Padding="0" CornerRadius="5">-->
                     <CollectionView ItemsSource="{Binding customers}" SelectionMode="Single" SelectionChanged="ItemSelected" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" HeightRequest="{Binding heightSize}">
                             <CollectionView.ItemsLayout>
-                                <LinearItemsLayout Orientation="Vertical" ItemSpacing="2" />
+                                <LinearItemsLayout Orientation="Vertical" ItemSpacing="0" />
                             </CollectionView.ItemsLayout>
                             <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -43,7 +43,7 @@
                                         </Grid.RowDefinitions>
                                     <Label Grid.Row="1" Grid.Column="1" Text="{Binding NAME}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" TextColor="#1A1A1A" FontSize="15.0"/>
                                         <Label Grid.Row="2" Grid.Column="1" Text="{Binding FROM}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" TextColor="#1A1A1A" FontSize="12.0"/>
-                                        <BoxView IsVisible="{Binding SeparatorVisible}" Grid.Row="4" Grid.Column="1" HeightRequest="2" VerticalOptions="End" HorizontalOptions="FillAndExpand" Background="Red"/>
+                                        <BoxView IsVisible="{Binding SeparatorVisible}" Grid.Row="4" Grid.Column="1" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Background="#BDBDBD"/>
                                     </Grid>
                                 </Frame>
                             </DataTemplate>
