@@ -17,6 +17,7 @@ namespace CustomList
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private void HorizontalClicked(object sender, EventArgs e)
