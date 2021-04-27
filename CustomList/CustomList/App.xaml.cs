@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomList.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace CustomList
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new HorizontalCollection();
         }
 
         protected override void OnStart()

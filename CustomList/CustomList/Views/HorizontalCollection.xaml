@@ -20,7 +20,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame HeightRequest="169" WidthRequest="{Binding widthSize}" BackgroundColor="#FFFFFF" Padding="0" CornerRadius="5">
-                        <CollectionView ItemsSource="{Binding customers}" SelectionMode="Single" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                        <CollectionView ItemsSource="{Binding customers}" SelectionMode="Single" SelectionChanged="ItemSelected" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
                             <CollectionView.ItemsLayout>
                                 <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0" />
                             </CollectionView.ItemsLayout>
