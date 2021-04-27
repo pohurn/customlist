@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CustomList.Views.HorizontalCollection">
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="10" ColumnSpacing="0" BackgroundColor="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <CollectionView x:Name="AllDataCollection" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding AllData.customersList}" SelectionMode="Single" HorizontalScrollBarVisibility="Never" HeightRequest="169" VerticalScrollBarVisibility="Never" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="25" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame HeightRequest="169" WidthRequest="{Binding widthSize}" BackgroundColor="#FFFFFF" Padding="0" CornerRadius="5">
+                        <CollectionView ItemsSource="{Binding customers}" SelectionMode="Single" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#FFFFFF" RowSpacing="0" ColumnSpacing="0" WidthRequest="225">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="13"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="13"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="13"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="13"/>
+                                            <RowDefinition Height="1"/>
+                                            <RowDefinition Height="13"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="13"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding NAME}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" TextColor="#1A1A1A" FontSize="18.0"/>
+                                        <BoxView Grid.Row="0" Grid.RowSpan="9" Margin="0,13" Grid.Column="3" VerticalOptions="FillAndExpand" HorizontalOptions="End" WidthRequest="1" Background="#BDBDBD"/>
+                                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding FROM}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" TextColor="#1A1A1A" FontSize="18.0"/>
+                                        <Label Grid.Row="7" Grid.Column="1" Text="{Binding TO}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" TextColor="#1A1A1A" FontSize="18.0"/>
+                                        <BoxView IsVisible="{Binding SeparatorVisible}" Grid.Row="3" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Background="#BDBDBD"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
