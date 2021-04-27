@@ -7,11 +7,13 @@ namespace CustomList
 {
     public partial class App : Application
     {
+        public static NavigationPage np;
+
         public App()
         {
             InitializeComponent();
-
-            MainPage = new HorizontalCollection();
+            np = new NavigationPage(new MainPage());
+            MainPage = np;
         }
 
         protected override void OnStart()
