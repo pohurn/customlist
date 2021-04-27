@@ -27,6 +27,9 @@ namespace CustomList.Viewmodels
             public int widthSize { get; set; }
 
             [JsonIgnore]
+            public int heightSize { get; set; }
+
+            [JsonIgnore]
             public bool SeparatorVisible { get; set; }
 
         }
@@ -54,16 +57,20 @@ namespace CustomList.Viewmodels
             listD.Add(new Customer { ID = 1, NAME = "007FRZA000077", FROM = "Paris", TO = "Cape Town" });
             listD.Add(new Customer { ID = 3, NAME = "007FRZA000078", FROM = "London", TO = "New York" });
 
+            var listF = new List<Customer>();
+            listF.Add(new Customer { ID = 3, NAME = "007FRZA000079", FROM = "London", TO = "New York" });
+
             var listE = new List<Customer>();
             listE.Add(new Customer { ID = 3, NAME = "007FRZA000079", FROM = "London", TO = "New York" });
             listE.Add(new Customer { ID = 1, NAME = "007FRZA000080", FROM = "Paris", TO = "Cape Town" });
             listE.Add(new Customer { ID = 4, NAME = "007FRZA000081", FROM = "Madrid", TO = "Paris" });
 
-            var listParentA = new CustomerList { ID = 1, customers = listA, widthSize = (listA.Count * 225), SeparatorVisible = listA.Count > 1 ? true : false };
-            var listParentB = new CustomerList { ID = 1, customers = listB, widthSize = (listB.Count * 225), SeparatorVisible = listB.Count > 1 ? true : false };
-            var listParentC = new CustomerList { ID = 1, customers = listC, widthSize = (listC.Count * 225), SeparatorVisible = listC.Count > 1 ? true : false };
-            var listParentD = new CustomerList { ID = 1, customers = listD, widthSize = (listD.Count * 225), SeparatorVisible = listD.Count > 1 ? true : false };
-            var listParentE = new CustomerList { ID = 1, customers = listE, widthSize = (listE.Count * 225), SeparatorVisible = listE.Count > 1 ? true : false };
+            var listParentA = new CustomerList { ID = 1, customers = listA, widthSize = (listA.Count * 225), heightSize = (listA.Count * 60), SeparatorVisible = listA.Count > 1 ? true : false };
+            var listParentB = new CustomerList { ID = 1, customers = listB, widthSize = (listB.Count * 225), heightSize = (listB.Count * 60), SeparatorVisible = listB.Count > 1 ? true : false };
+            var listParentC = new CustomerList { ID = 1, customers = listC, widthSize = (listC.Count * 225), heightSize = (listC.Count * 60), SeparatorVisible = listC.Count > 1 ? true : false };
+            var listParentD = new CustomerList { ID = 1, customers = listD, widthSize = (listD.Count * 225), heightSize = (listD.Count * 60), SeparatorVisible = listD.Count > 1 ? true : false };
+            var listParentE = new CustomerList { ID = 1, customers = listE, widthSize = (listE.Count * 225), heightSize = (listE.Count * 60), SeparatorVisible = listE.Count > 1 ? true : false };
+            var listParentF = new CustomerList { ID = 1, customers = listF, widthSize = (listF.Count * 225), heightSize = (listE.Count * 60), SeparatorVisible = listF.Count > 1 ? true : false };
 
 
             var ff = new List<CustomerList>();
@@ -72,6 +79,7 @@ namespace CustomList.Viewmodels
             ff.Add(listParentC);
             ff.Add(listParentD);
             ff.Add(listParentE);
+            ff.Add(listParentF);
 
             data = new CustomerListList { ID = 1, customersList = ff };
         }

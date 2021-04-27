@@ -2,11 +2,56 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CustomList.Views.VerticalCollection">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="10" ColumnSpacing="0" BackgroundColor="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <CollectionView x:Name="AllDataCollection" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding AllData.customersList}" SelectionMode="Single" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!--<Frame HeightRequest="{Binding heightSize}" BackgroundColor="#FFFFFF" Padding="0" CornerRadius="5">-->
+                    <CollectionView ItemsSource="{Binding customers}" SelectionMode="Single" SelectionChanged="ItemSelected" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" HeightRequest="{Binding heightSize}">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" ItemSpacing="2" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame HeightRequest="{Binding heightSize}" BackgroundColor="#FFFFFF" Padding="0" CornerRadius="5" Margin="0">
+                                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#FFFFFF" RowSpacing="0" ColumnSpacing="0" HeightRequest="{Binding heightSize}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="17"/>
+                                        <RowDefinition Height="15"/>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding NAME}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" TextColor="#1A1A1A" FontSize="15.0"/>
+                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding FROM}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" TextColor="#1A1A1A" FontSize="12.0"/>
+                                        <BoxView IsVisible="{Binding SeparatorVisible}" Grid.Row="4" Grid.Column="1" HeightRequest="2" VerticalOptions="End" HorizontalOptions="FillAndExpand" Background="Red"/>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    <!--</Frame>-->
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
